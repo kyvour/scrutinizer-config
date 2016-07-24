@@ -162,9 +162,14 @@ coding_style:
         true_false_null: lower
 
 tools:
-  php_code_sniffer:
-    config:
-      standard: "PSR2"
   php_cs_fixer:
     config:
-      level: psr2
+      level: all
+  php_code_sniffer:
+    config:
+      standard: PSR2
+  sensiolabs_security_checker: true
+  php_loc: true
+  php_pdepend: true
+  php_sim: true
+  php_changetracking: true
