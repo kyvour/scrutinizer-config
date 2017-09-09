@@ -1,3 +1,30 @@
+build:
+  environment:
+    php:
+      version: "7.1"
+      ini:
+        memory_limit: "-1"
+
+filter:
+  excluded_paths:
+    - tests/*
+
+tools:
+  external_code_coverage:
+    timeout: 600
+    runs: 3
+  php_cs_fixer:
+    config:
+      level: all
+  php_code_sniffer:
+    config:
+      standard: PSR2
+  sensiolabs_security_checker: true
+  php_loc: true
+  php_pdepend: true
+  php_sim: true
+  php_changetracking: true
+
 checks:
   php:
     verify_property_names: true
@@ -74,7 +101,7 @@ checks:
     newline_at_end_of_file: true
     naming_conventions:
       local_variable: '^[a-z][a-zA-Z0-9]*$'
-      abstract_class_name: ^Abstract|Factory$
+      abstract_class_name: ^Base|Abstract|Factory$
       utility_class_name: 'Utils?$'
       constant_name: '^[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)*$'
       property_name: '^[a-z][a-zA-Z0-9]*$'
@@ -161,15 +188,3 @@ coding_style:
       constants:
         true_false_null: lower
 
-tools:
-  php_cs_fixer:
-    config:
-      level: all
-  php_code_sniffer:
-    config:
-      standard: PSR2
-  sensiolabs_security_checker: true
-  php_loc: true
-  php_pdepend: true
-  php_sim: true
-  php_changetracking: true
